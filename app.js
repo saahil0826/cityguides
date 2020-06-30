@@ -11,7 +11,6 @@ var express = require("express"),
   Campground = require("./models/campground"),
   Comment = require("./models/comment"),
   User = require("./models/user"),
-  seedDB = require("./seed"),
   methodOverride = require("method-override");
 
   PORT = process.env.PORT || 4002;
@@ -20,7 +19,6 @@ var commentRoutes = require('./routes/comments'),
     indexRoutes = require('./routes/index'),
     campRoutes = require('./routes/campgrounds');
 
-// seedDB();
 app.use(bodyParser.urlencoded({
   extended: true
 }));
