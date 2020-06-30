@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+
+
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Welcome to Cityguide!</h1>
+      <p>A curated list of various cities from around the world..</p>
+      <p>
+        <a class="btn btn-primary btn-large" href="/campgrounds/new">Add a new Cityguide</a>
+      </p>
+      <div class="">
+        <form class="" action="/campgrounds" method="get" class="form-inline">
+          <div class="form-group" style="width: 30%;">
+            <input type="text" name="search" placeholder="City Search.." class="form-control">
+            <input type="submit" class="btn btn-default" value="Search">
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <div class="col-md-12">
+             <% if(noMatch !== null) { %>
+             <h3><%= noMatch %></h3>
+             <% } %>
+         </div>
+
+  <div class="row text-center">
+    <% campgrounds.forEach(function(campground){ %>
+    <div class="col-md-3 col-sm-6">
+      <div class="thumbnail">
+        <img src="<%= campground.image %>">
+        <div class="caption">
+          <h4> <%= campground.name %> </h4>
+        </div>
+        <p>
+          <a href="/campgrounds/<%= campground._id %> " class="btn btn-primary">More Info</a>
+        </p>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+
+
+<%- include("../partials/footer") %>
